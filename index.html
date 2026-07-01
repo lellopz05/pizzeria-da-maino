@@ -3,286 +3,587 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pizzeria Ristorante Enoteca da Maino | Conco, Altopiano di Asiago</title>
-  <meta name="description" content="Pizzeria Ristorante Enoteca da Maino sull'Altopiano di Asiago. Tradizione montana, pizza artigianale, vini selezionati dal 2005.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍕</text></svg>">
+  <title>Da Maino | Pizzeria Ristorante Enoteca &mdash; Conco, Altopiano di Asiago</title>
+  <meta name="description" content="Pizzeria Ristorante Enoteca da Maino sull'Altopiano di Asiago. Tradizione montana, pizza artigianale, vini selezionati e prodotti tipici dal 2005.">
+  <meta name="theme-color" content="#3D2C1A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍕%3C/text%3E%3C/svg%3E">
+
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:Georgia,'Times New Roman',serif;color:#2c2c2c;background:#faf8f4;line-height:1.6}
+    :root{--gold:#C8A43A;--gold-dark:#A8882E;--gold-light:#E0C66A;--wood:#5C3D2E;--wood-dark:#3D2C1A;--clay:#B5651D;--olive:#6B7B3C;--cream:#F5F0E1;--bg:#FDFBF7;--bg-alt:#F6F0E6;--text:#2C2C2C;--text-light:#6B6B6B;--text-muted:#999;--white:#FFFFFF;--shadow-sm:0 1px 3px rgba(0,0,0,0.08);--shadow-md:0 4px 20px rgba(0,0,0,0.10);--shadow-lg:0 8px 40px rgba(0,0,0,0.14);--radius:12px;--radius-lg:20px;--transition:0.3s cubic-bezier(0.4,0,0.2,1)}
+    html{scroll-behavior:smooth;scroll-padding-top:70px}
+    body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased}
     img{max-width:100%;height:auto;display:block}
     a{color:inherit;text-decoration:none}
-    :root{--gold:#c8a43a;--gold-dark:#a8882e;--wood:#5c3d2e;--green:#4a7c3f;--bg:#faf8f4;--bg-alt:#f3efe8;--text-light:#666}
-    h1,h2{font-weight:700}
-    h2{font-size:2rem;text-align:center;margin-bottom:2.5rem;position:relative;padding-bottom:.75rem}
-    h2::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:3px;background:var(--gold);border-radius:2px}
-    .section{padding:4rem 1.5rem;max-width:1100px;margin:0 auto}
+    button{cursor:pointer;font-family:inherit}
+    :focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
+    ::selection{background:var(--gold);color:var(--white)}
+    .container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+    h1{font-family:'Playfair Display',Georgia,serif;font-weight:700}
+    h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;text-align:center;margin-bottom:2.5rem;position:relative;padding-bottom:1rem;color:var(--wood-dark)}
+    h2::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px}
+    h3{font-family:'Playfair Display',Georgia,serif;font-weight:600}
+    .section{padding:5rem 0}
     .section-alt{background:var(--bg-alt)}
-    .btn{display:inline-block;padding:.85rem 2rem;border-radius:50px;font-weight:600;font-size:1rem;cursor:pointer;transition:.2s;border:2px solid transparent;font-family:Georgia,serif}
-    .btn-gold{background:var(--gold);color:#fff}
-    .btn-gold:hover{background:var(--gold-dark);transform:translateY(-2px)}
-    .btn-outline{border-color:#fff;color:#fff;background:transparent}
-    .btn-outline:hover{background:rgba(255,255,255,.15)}
-    .hero{min-height:85vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(rgba(30,20,10,.6),rgba(30,20,10,.6)),url('assets/hero-bg.jpg') center/cover fixed;color:#fff;padding:2rem 1rem;position:relative}
-    .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(transparent,var(--bg))}
-    .hero-logo{max-width:140px;margin-bottom:1.5rem;border-radius:50%;border:3px solid var(--gold)}
-    .hero h1{font-size:clamp(1.8rem,5vw,3.2rem);letter-spacing:1px}
-    .hero p{font-size:clamp(1rem,2.5vw,1.3rem);max-width:500px;margin:.75rem auto 2rem;opacity:.9;font-style:italic}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:50px;font-weight:600;font-size:.95rem;cursor:pointer;transition:var(--transition);border:2px solid transparent;font-family:inherit;letter-spacing:.3px}
+    .btn:active{transform:scale(0.97)}
+    .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--white);box-shadow:0 2px 12px rgba(200,164,58,0.3)}
+    .btn-gold:hover{box-shadow:0 4px 20px rgba(200,164,58,0.45);transform:translateY(-2px)}
+    .btn-outline{border-color:var(--white);color:var(--white);background:transparent;backdrop-filter:blur(4px)}
+    .btn-outline:hover{background:rgba(255,255,255,0.15);backdrop-filter:blur(8px)}
+    .btn-ghost{color:var(--gold);background:transparent;border-color:var(--gold)}
+    .btn-ghost:hover{background:var(--gold);color:var(--white)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}}
+
+    /* Hero */
+    .hero{min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(rgba(30,20,10,0.65),rgba(30,20,10,0.55)),url('assets/hero-bg.jpg') center/cover no-repeat;color:var(--white);padding:2rem 1rem;position:relative}
+    .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,var(--bg))}
+    .hero-logo{width:130px;height:130px;border-radius:50%;border:3px solid var(--gold);margin-bottom:1.5rem;object-fit:cover;box-shadow:0 0 40px rgba(200,164,58,0.2)}
+    .hero h1{font-size:clamp(2rem,5.5vw,3.6rem);letter-spacing:1px;line-height:1.15;margin-bottom:.5rem}
+    .hero .subtitle{font-size:clamp(1rem,2vw,1.25rem);max-width:520px;margin:0 auto 2rem;opacity:.9;font-family:'Playfair Display',Georgia,serif;font-style:italic}
+    .hero .year{display:inline-block;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;opacity:.6;margin-bottom:.75rem;font-weight:500}
     .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
-    nav{position:sticky;top:0;z-index:100;background:rgba(44,44,44,.97);backdrop-filter:blur(8px);padding:.75rem 1.5rem;display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap;border-bottom:2px solid var(--gold)}
-    nav a{color:#eee;font-size:.85rem;font-weight:600;padding:.4rem .85rem;border-radius:6px;transition:.2s;text-transform:uppercase;letter-spacing:.5px}
-    nav a:hover{background:var(--gold);color:#2c2c2c}
-    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
-    .about-grid img{border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.1)}
-    .about-text p+p{margin-top:1rem}
-    .about-text strong{color:var(--gold-dark)}
-    .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-    .menu-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);transition:transform .2s;border-left:4px solid var(--gold)}
-    .menu-card:hover{transform:translateY(-4px)}
-    .menu-card-body{padding:1.5rem}
-    .menu-card h3{font-size:1.15rem;margin-bottom:.4rem;color:var(--wood)}
-    .menu-card .price{color:var(--gold);font-weight:700;font-size:1.2rem}
-    .menu-card p{font-size:.9rem;color:var(--text-light);margin:.5rem 0 0}
-    .carousel-wrap{position:relative;max-width:900px;margin:0 auto}
-    .carousel-viewport{overflow:hidden;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.12)}
-    .carousel-track{display:flex;transition:transform .5s ease}
-    .carousel-track img{min-width:100%;height:500px;object-fit:cover}
-    .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(0,0,0,.5);color:#fff;border:none;width:44px;height:44px;border-radius:50%;font-size:1.5rem;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center}
-    .carousel-btn:hover{background:var(--gold);color:#2c2c2c}
-    .carousel-prev{left:10px}
-    .carousel-next{right:10px}
-    .carousel-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1rem}
-    .carousel-dot{width:10px;height:10px;border-radius:50%;background:#ccc;border:none;cursor:pointer;transition:.2s}
-    .carousel-dot.active{background:var(--gold);transform:scale(1.3)}
-    .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
-    .review-card{background:#fff;padding:1.5rem;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.06);position:relative;border-top:3px solid var(--gold)}
-    .review-card::before{content:'\00AB';font-size:3rem;color:var(--gold);opacity:.3;position:absolute;top:.5rem;left:1rem;line-height:1}
-    .review-card .stars{color:#f5b342;font-size:1.1rem;margin-bottom:.5rem}
-    .review-card p{font-size:.95rem;font-style:italic;margin-bottom:.5rem}
-    .review-card cite{font-size:.85rem;color:#888;font-style:normal}
-    .reviews-link{text-align:center;margin-top:2rem}
-    .reviews-link a{color:var(--gold);font-weight:600}
-    .reviews-link a:hover{text-decoration:underline}
-    .map-container{border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.1)}
-    .map-container iframe{width:100%;height:400px;border:0}
-    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
-    .info-grid div{padding:1.25rem;background:#fff;border-radius:10px;border-left:3px solid #4a7c3f}
-    .info-grid h3{font-size:1rem;margin-bottom:.5rem;color:var(--gold)}
-    .info-grid p{font-size:.9rem;color:#555}
-    .cta-bar{position:fixed;bottom:0;left:0;right:0;z-index:300;background:rgba(44,44,44,.98);backdrop-filter:blur(8px);padding:.75rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;border-top:2px solid var(--gold)}
-    .cta-bar p{color:#fff;font-size:1rem;font-weight:600}
-    .cta-bar .btn{padding:.65rem 1.5rem;font-size:.95rem}
+
+    /* Nav */
+    nav{position:sticky;top:0;z-index:100;background:rgba(61,44,26,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:.65rem 1.5rem;display:flex;justify-content:center;align-items:center;gap:.25rem;flex-wrap:wrap;border-bottom:2px solid var(--gold)}
+    nav a{color:rgba(255,255,255,0.85);font-size:.8rem;font-weight:600;padding:.45rem .85rem;border-radius:8px;transition:var(--transition);text-transform:uppercase;letter-spacing:.6px;position:relative}
+    nav a:hover{color:var(--white);background:rgba(200,164,58,0.2)}
+    nav a[aria-current]{color:var(--gold)}
+    nav a[aria-current]::after{content:'';position:absolute;bottom:2px;left:50%;transform:translateX(-50%);width:20px;height:2px;background:var(--gold);border-radius:1px}
+
+    /* About */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+    .about-grid img{border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);width:100%;height:400px;object-fit:cover;transition:var(--transition)}
+    .about-grid img:hover{transform:scale(1.01)}
+    .about-text p{font-size:1.05rem;color:var(--text-light)}
+    .about-text p+p{margin-top:1.25rem}
+    .about-text strong{color:var(--wood-dark);font-weight:600}
+    .about-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--cream);color:var(--wood-dark);padding:.5rem 1rem;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:1.5rem;border:1px solid rgba(200,164,58,0.2)}
+
+    /* Menu */
+    .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+    .menu-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:var(--transition);border:1px solid rgba(0,0,0,0.04);display:flex;flex-direction:column}
+    .menu-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px)}
+    .menu-card-img{height:200px;width:100%;object-fit:cover}
+    .menu-card-img-placeholder{height:200px;background:linear-gradient(135deg,var(--cream),var(--bg-alt));display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:3rem}
+    .menu-card-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+    .menu-card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:.75rem;margin-bottom:.5rem}
+    .menu-card h3{font-size:1.15rem;color:var(--wood-dark);line-height:1.3}
+    .menu-card .price{color:var(--gold);font-weight:700;font-size:1.2rem;white-space:nowrap}
+    .menu-card .price small{font-size:.75rem;font-weight:400;color:var(--text-muted)}
+    .menu-card p{font-size:.9rem;color:var(--text-light);line-height:1.6;margin-top:auto}
+    .menu-card .tag{display:inline-block;font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;font-weight:600;color:var(--olive);background:rgba(107,123,60,0.1);padding:.25rem .65rem;border-radius:50px;margin-top:.75rem;align-self:flex-start}
+
+    /* Gallery */
+    .carousel-wrap{position:relative;max-width:900px;margin:0 auto;touch-action:pan-y pinch-zoom}
+    .carousel-viewport{overflow:hidden;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);position:relative}
+    .carousel-track{display:flex;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);will-change:transform}
+    .carousel-track img{min-width:100%;height:500px;object-fit:cover;cursor:pointer;user-select:none;-webkit-user-drag:none}
+    .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(0,0,0,0.4);color:var(--white);border:none;width:48px;height:48px;border-radius:50%;font-size:1.3rem;cursor:pointer;transition:var(--transition);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.1)}
+    .carousel-btn:hover{background:var(--gold);color:var(--wood-dark);transform:translateY(-50%) scale(1.05)}
+    .carousel-btn:active{transform:translateY(-50%) scale(0.95)}
+    .carousel-prev{left:16px}
+    .carousel-next{right:16px}
+    .carousel-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .carousel-dot{width:10px;height:10px;border-radius:50%;background:#D4C4A8;border:none;cursor:pointer;transition:var(--transition)}
+    .carousel-dot.active{background:var(--gold);transform:scale(1.4)}
+    .carousel-counter{text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:.5rem;font-weight:500}
+
+    /* Reviews */
+    .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+    .review-card{background:var(--white);padding:1.75rem;border-radius:var(--radius);box-shadow:var(--shadow-sm);border:1px solid rgba(0,0,0,0.04);position:relative;transition:var(--transition)}
+    .review-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+    .review-card .quote-icon{color:var(--gold);opacity:0.2;font-size:2.5rem;position:absolute;top:.75rem;left:1.25rem;line-height:1;font-family:Georgia,serif}
+    .review-card .stars{color:#F5B342;font-size:1.1rem;margin-bottom:.65rem;letter-spacing:2px}
+    .review-card .review-text{font-size:.95rem;font-style:italic;color:var(--text-light);line-height:1.7;margin-bottom:.75rem;position:relative;z-index:1}
+    .review-card cite{font-size:.85rem;color:var(--text-muted);font-style:normal;display:flex;align-items:center;gap:.5rem}
+    .review-card cite::before{content:'';display:inline-block;width:16px;height:1px;background:var(--gold)}
+    .reviews-footer{text-align:center;margin-top:2.5rem}
+    .reviews-footer a{color:var(--gold);font-weight:600;transition:var(--transition);display:inline-flex;align-items:center;gap:.4rem}
+    .reviews-footer a:hover{color:var(--gold-dark);gap:.6rem}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+    .map-container{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);position:relative;padding-top:56.25%}
+    .map-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+    .info-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .info-card{padding:1.25rem;background:var(--white);border-radius:var(--radius);border:1px solid rgba(0,0,0,0.04);transition:var(--transition)}
+    .info-card:hover{box-shadow:var(--shadow-sm)}
+    .info-card .icon-wrap{width:40px;height:40px;border-radius:10px;background:rgba(200,164,58,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:.75rem;color:var(--gold)}
+    .info-card h3{font-size:.9rem;font-weight:700;color:var(--wood-dark);margin-bottom:.35rem}
+    .info-card p{font-size:.88rem;color:var(--text-light);line-height:1.5}
+    .info-card a{color:var(--gold);font-weight:600}
+    .info-card a:hover{color:var(--gold-dark);text-decoration:underline}
+
+    /* Reservation */
+    .reservation{background:linear-gradient(135deg,var(--wood-dark),var(--wood));padding:3.5rem 2rem;border-radius:var(--radius-lg);margin-top:3rem;text-align:center;color:var(--white);position:relative;overflow:hidden}
+    .reservation::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+    .reservation h3{font-size:1.6rem;margin-bottom:.75rem;position:relative}
+    .reservation p{opacity:.9;margin-bottom:1.5rem;position:relative;font-size:.95rem}
+    .reservation .btn{margin-top:.5rem;position:relative}
+    .reservation .phone-large{font-size:2rem;font-weight:700;font-family:'Playfair Display',Georgia,serif;color:var(--gold);display:block;margin-bottom:.5rem;position:relative}
+
+    /* CTA Bar */
+    .cta-bar{position:fixed;bottom:0;left:0;right:0;z-index:300;background:rgba(61,44,26,0.98);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:.7rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;border-top:2px solid var(--gold)}
+    .cta-bar p{color:var(--white);font-size:.95rem;font-weight:600;display:flex;align-items:center;gap:.5rem}
+    .cta-bar .btn{padding:.6rem 1.4rem;font-size:.9rem}
     .cta-bar .btn:hover{transform:translateY(-1px)}
-    body{padding-bottom:70px}
-    footer{background:#2c2c2c;color:#ccc;text-align:center;padding:2.5rem 1.5rem 1.5rem}
-    footer .social{margin-bottom:1rem}
-    footer .social a{display:inline-block;padding:.5rem 1rem;border:1px solid #555;border-radius:50px;color:#ddd;font-size:.9rem;transition:.2s}
-    footer .social a:hover{background:var(--gold);border-color:var(--gold);color:#2c2c2c}
-    footer p{font-size:.85rem}
-    footer .credits{margin-top:.75rem;opacity:.6;font-size:.8rem}
-    @media(max-width:768px){.about-grid,.info-grid{grid-template-columns:1fr}.hero{min-height:70vh}.carousel-track img{height:300px}.cta-bar p{font-size:.85rem}.cta-bar .btn{padding:.55rem 1rem;font-size:.85rem}}
-    @media(max-width:480px){.section{padding:2.5rem 1rem}h2{font-size:1.6rem}.hero-btns{flex-direction:column;align-items:center}.btn{width:100%;max-width:260px;text-align:center}.cta-bar{flex-direction:column;text-align:center;padding:.6rem 1rem}.cta-bar .btn{width:100%}body{padding-bottom:100px}}
+    body{padding-bottom:72px}
+
+    /* Footer */
+    footer{background:var(--wood-dark);color:rgba(255,255,255,0.7);text-align:center;padding:3rem 1.5rem 1.5rem;position:relative}
+    footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:64px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px}
+    footer .footer-logo{width:60px;height:60px;border-radius:50%;margin:0 auto 1rem;border:2px solid var(--gold);object-fit:cover}
+    footer .social{display:flex;justify-content:center;gap:.75rem;margin-bottom:1.25rem}
+    footer .social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(255,255,255,0.15);border-radius:50%;color:rgba(255,255,255,0.7);font-size:.9rem;transition:var(--transition)}
+    footer .social a:hover{background:var(--gold);border-color:var(--gold);color:var(--wood-dark);transform:translateY(-2px)}
+    footer .footer-text{font-size:.85rem;line-height:1.8}
+    footer .footer-text span{display:inline-block;margin:0 .4rem;color:rgba(255,255,255,0.3)}
+    footer .credits{margin-top:1rem;opacity:.4;font-size:.78rem}
+
+    /* Lightbox */
+    #lightbox{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;pointer-events:none;transition:opacity 0.3s ease;backdrop-filter:blur(8px)}
+    #lightbox.show{opacity:1;pointer-events:auto}
+    #lightbox img{max-width:95vw;max-height:90vh;object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+    #lightbox .close-btn{position:absolute;top:20px;right:20px;width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,0.1);color:var(--white);font-size:1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
+    #lightbox .close-btn:hover{background:rgba(255,255,255,0.2);transform:rotate(90deg)}
+
+    /* Back to top */
+    .back-to-top{position:fixed;bottom:80px;right:20px;z-index:50;width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--white);border:none;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);transition:var(--transition);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none}
+    .back-to-top.visible{opacity:1;pointer-events:auto}
+    .back-to-top:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+
+    /* Reveal animation */
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* Responsive */
+    @media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+    @media(max-width:768px){
+      .about-grid{grid-template-columns:1fr;gap:2rem}
+      .about-grid img{height:280px}
+      .hero{min-height:75vh}
+      .carousel-track img{height:320px}
+      .info-cards{grid-template-columns:1fr}
+      .section{padding:3.5rem 0}
+      .cta-bar p{font-size:.85rem;gap:.3rem}
+      .cta-bar .btn{padding:.5rem 1.1rem;font-size:.85rem}
+      nav{gap:.1rem}
+      nav a{font-size:.72rem;padding:.35rem .55rem}
+    }
+    @media(max-width:480px){
+      .hero{min-height:85vh;padding:1.5rem 1rem}
+      .hero-logo{width:100px;height:100px}
+      .section{padding:2.5rem 0}
+      .container{padding:0 1rem}
+      .hero-btns{flex-direction:column;align-items:center;width:100%}
+      .hero-btns .btn{width:100%;max-width:280px;justify-content:center}
+      .carousel-track img{height:250px}
+      .carousel-btn{width:40px;height:40px;font-size:1rem}
+      .cta-bar{flex-direction:column;text-align:center;padding:.5rem 1rem;gap:.5rem}
+      .cta-bar .btn{width:100%}
+      body{padding-bottom:96px}
+      .menu-grid{grid-template-columns:1fr}
+      .reservation{padding:2.5rem 1.5rem}
+      .reservation .phone-large{font-size:1.5rem}
+    }
   </style>
 </head>
 <body>
 
-<section class="hero" id="home">
-  <img src="assets/logo.png" alt="Da Maino logo" class="hero-logo">
-  <h1>Pizzeria Ristorante Enoteca da Maino</h1>
-  <p>Tradizione e qualit&agrave; sull'Altopiano dal 2005</p>
-  <div class="hero-btns">
-    <a href="tel:+390424704023" class="btn btn-gold">&#x1f4de; Chiama ora</a>
-    <a href="#menu" class="btn btn-outline">&#x1f355; Vedi il men&ugrave;</a>
-  </div>
-</section>
-
-<nav>
-  <a href="#home">Home</a>
-  <a href="#about">Chi siamo</a>
-  <a href="#menu">Men&ugrave;</a>
-  <a href="#gallery">Galleria</a>
-  <a href="#reviews">Recensioni</a>
-  <a href="#contact">Contatti</a>
-</nav>
-
-<section class="section" id="about">
-  <h2>Chi siamo</h2>
-  <div class="about-grid">
-    <img src="assets/hero-bg.jpg" alt="Esterno Da Maino">
-    <div class="about-text">
-      <p><strong>Da Maino</strong> nasce nel 2005 a Conco, sull'Altopiano di Asiago, forte di un'esperienza trentennale nel settore della ristorazione.</p>
-      <p>Qui la tradizione montana incontra la qualit&agrave;: <strong>pizza artigianale</strong>, <strong>prodotti tipici</strong> dell'Altopiano (Asiago DOP, sopressa, funghi porcini, polenta) e una <strong>selezionata cantina di vini</strong>.</p>
-      <p>Ambiente rustico e accogliente: mattoni a vista, legno, camino, dehors coperto e birreria esterna.</p>
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <img src="assets/logo.png" alt="Da Maino logo" class="hero-logo" loading="eager">
+    <span class="year">Dal 2005</span>
+    <h1>Pizzeria Ristorante Enoteca<br>da Maino</h1>
+    <p class="subtitle">Tradizione e qualit&agrave; sull'Altopiano di Asiago</p>
+    <div class="hero-btns">
+      <a href="tel:+390424704023" class="btn btn-gold" aria-label="Chiama ora 0424 704023">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Chiama ora
+      </a>
+      <a href="#menu" class="btn btn-outline">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        Vedi il men&ugrave;
+      </a>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section section-alt" id="menu">
-  <h2>I nostri piatti</h2>
-  <div class="menu-grid">
-    <article class="menu-card">
-      <div class="menu-card-body">
-        <h3>Piatto Unico Altopiano</h3>
-        <div class="price">&euro;13</div>
-        <p>Polenta, Asiago DOP, sopressa, funghi porcini. I sapori della tradizione.</p>
-      </div>
-    </article>
-    <article class="menu-card">
-      <div class="menu-card-body">
-        <h3>Pizza Toro &ldquo;Del Maino&rdquo;</h3>
-        <div class="price">&euro;15</div>
-        <p>Carpaccio di toro, pomodorini secchi, burrata. La pizza signature.</p>
-      </div>
-    </article>
-    <article class="menu-card">
-      <div class="menu-card-body">
-        <h3>Pizza classica</h3>
-        <div class="price">&euro;8&ndash;&euro;12</div>
-        <p>Impasto artigianale, prodotti di prima qualit&agrave;. Tutte le varianti.</p>
-      </div>
-    </article>
-  </div>
-</section>
+  <!-- Nav -->
+  <nav role="navigation" aria-label="Navigazione principale">
+    <a href="#home" aria-current="page">Home</a>
+    <a href="#about">Chi siamo</a>
+    <a href="#menu">Men&ugrave;</a>
+    <a href="#gallery">Galleria</a>
+    <a href="#reviews">Recensioni</a>
+    <a href="#contact">Contatti</a>
+  </nav>
 
-<section class="section" id="gallery">
-  <h2>Galleria</h2>
-  <div class="carousel-wrap">
-    <div class="carousel-viewport">
-      <div class="carousel-track" id="carouselTrack">
-        <img src="assets/gallery-305579698_761694534807782_3213956407487638608_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-474823637_1355021635475066_676516741133990873_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-702180036_1756006018709957_5678140913739214053_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-705268558_1756006038709955_2713507271816520007_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-708180152_1762138191430073_1667599462673191997_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-709101490_1762138194763406_4518553636484643164_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-718174299_1773762330267659_7783199371643505808_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-718792240_1773762356934323_5719266283305619574_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-718952686_1773762273600998_2039131119111479992_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-719490732_1773762226934336_5810658743978883351_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-719548040_1773762156934343_5782899064761080982_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-719657642_1773762403600985_2533242462240415591_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-719883488_1773762300267662_7891450630819845263_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-719939121_1773762243601001_43108925802755166_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-719992709_1773762063601019_1437189850016725035_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-720177930_1773762496934309_930100429021646201_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-720475163_1773762096934349_9157485439448993427_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-720751293_1773762423600983_3261717056207059364_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-720846576_1773762176934341_1175885068084036431_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-720906634_1773762133601012_1407316831764894033_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-720919822_1773762200267672_252285253025252634_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-721003923_1773762466934312_8740461880037456374_n.jpg" alt="Foto Da Maino" loading="lazy">
-        <img src="assets/gallery-722767801_1773762390267653_1778750167139411022_n.jpg" alt="Foto Da Maino" loading="lazy">
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2>Chi siamo</h2>
+      <div class="about-grid">
+        <img src="assets/hero-bg.jpg" alt="Esterno del ristorante Da Maino a Conco" loading="lazy">
+        <div class="about-text">
+          <div class="about-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            Dal 2005 &middot; Tradizione autentica
+          </div>
+          <p><strong>Da Maino</strong> nasce nel 2005 a Conco, sull'Altopiano di Asiago, forte di un'esperienza trentennale nel settore della ristorazione.</p>
+          <p>Qui la tradizione montana incontra la qualit&agrave;: <strong>pizza artigianale</strong>, <strong>prodotti tipici</strong> dell'Altopiano (Asiago DOP, sopressa, funghi porcini, polenta) e una <strong>selezionata cantina di vini</strong>.</p>
+          <p>Ambiente rustico e accogliente: mattoni a vista, legno, camino, dehors coperto e birreria esterna. Il luogo ideale per gustare i sapori della montagna in compagnia.</p>
+        </div>
       </div>
     </div>
-    <button class="carousel-btn carousel-prev" id="carouselPrev">&#10094;</button>
-    <button class="carousel-btn carousel-next" id="carouselNext">&#10095;</button>
-    <div class="carousel-dots" id="carouselDots"></div>
-  </div>
-</section>
+  </section>
 
-<section class="section section-alt" id="reviews">
-  <h2>Dicono di noi</h2>
-  <div class="reviews-grid">
-    <blockquote class="review-card">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p>Personale accogliente e pizza eccezionale fatta con prodotti di prima qualit&agrave;. Da consigliare a tutti.</p>
-      <cite>&mdash; Enrico Conte</cite>
-    </blockquote>
-    <blockquote class="review-card">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p>Pizza buonissima e vini di altissima qualit&agrave;.</p>
-      <cite>&mdash; Alessio Poli</cite>
-    </blockquote>
-    <blockquote class="review-card">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p>Ristorante unico. Tutto buono! Ce ne fossero di pi&ugrave; di ristoranti cos&igrave;.</p>
-      <cite>&mdash; Recensione Facebook</cite>
-    </blockquote>
-  </div>
-  <div class="reviews-link">
-    <a href="https://facebook.com/pizzeriadamaino" target="_blank" rel="noopener">Vedi tutte le recensioni su Facebook &rarr;</a>
-  </div>
-</section>
-
-<section class="section" id="contact">
-  <h2>Dove siamo</h2>
-  <div class="map-container">
-    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=11.6071%2C45.7976%2C11.6171%2C45.8076&amp;layer=mapnik
-16"/>
-    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=11.6071%2C45.7976%2C11.6171%2C45.8076&amp;layer=mapnik&amp;marker=45.8026%2C11.6121" allowfullscreen loading="lazy" title="Mappa Da Maino"></iframe>
-  </div>
-  <div class="info-grid">
-    <div>
-      <h3>&#x1f4cd; Indirizzo</h3>
-      <p>Via Luigi Cappellari, 7/9<br>Conco (VI), 36062</p>
+  <!-- Menu -->
+  <section class="section section-alt" id="menu">
+    <div class="container">
+      <h2>I nostri piatti</h2>
+      <div class="menu-grid">
+        <article class="menu-card reveal">
+          <div class="menu-card-img-placeholder">🥘</div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Piatto Unico Altopiano</h3>
+              <span class="price">&euro;13</span>
+            </div>
+            <p>Polenta, Asiago DOP, sopressa, funghi porcini. I sapori autentici della tradizione montana.</p>
+            <span class="tag">Tipico</span>
+          </div>
+        </article>
+        <article class="menu-card reveal">
+          <div class="menu-card-img-placeholder">🍕</div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Pizza Toro &ldquo;Del Maino&rdquo;</h3>
+              <span class="price">&euro;15</span>
+            </div>
+            <p>Carpaccio di toro, pomodorini secchi, burrata. La nostra pizza signature, un'esperienza unica.</p>
+            <span class="tag">Signature</span>
+          </div>
+        </article>
+        <article class="menu-card reveal">
+          <div class="menu-card-img-placeholder">🍕</div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Pizza classica</h3>
+              <span class="price">&euro;8&ndash;&euro;12 <small>varianti</small></span>
+            </div>
+            <p>Impasto artigianale, prodotti di prima qualit&agrave;. Tutte le varianti classiche disponibili.</p>
+            <span class="tag">Tradizionale</span>
+          </div>
+        </article>
+      </div>
     </div>
-    <div>
-      <h3>&#x1f550; Orari</h3>
-      <p>Chiama per verificare gli orari di apertura</p>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <h2>Galleria</h2>
+      <div class="carousel-wrap">
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="carouselTrack" role="region" aria-label="Galleria fotografica">
+            <img src="assets/gallery-305579698_761694534807782_3213956407487638608_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-474823637_1355021635475066_676516741133990873_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-702180036_1756006018709957_5678140913739214053_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-705268558_1756006038709955_2713507271816520007_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-708180152_1762138191430073_1667599462673191997_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-709101490_1762138194763406_4518553636484643164_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-718174299_1773762330267659_7783199371643505808_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-718792240_1773762356934323_5719266283305619574_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-718952686_1773762273600998_2039131119111479992_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-719490732_1773762226934336_5810658743978883351_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-719548040_1773762156934343_5782899064761080982_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-719657642_1773762403600985_2533242462240415591_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-719883488_1773762300267662_7891450630819845263_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-719939121_1773762243601001_43108925802755166_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-719992709_1773762063601019_1437189850016725035_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-720177930_1773762496934309_930100429021646201_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-720475163_1773762096934349_9157485439448993427_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-720751293_1773762423600983_3261717056207059364_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-720846576_1773762176934341_1175885068084036431_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-720906634_1773762133601012_1407316831764894033_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-720919822_1773762200267672_252285253025252634_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-721003923_1773762466934312_8740461880037456374_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+            <img src="assets/gallery-722767801_1773762390267653_1778750167139411022_n.jpg" alt="Foto del ristorante Da Maino" loading="lazy" draggable="false">
+          </div>
+        </div>
+        <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Foto precedente">&#10094;</button>
+        <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Foto successiva">&#10095;</button>
+        <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Seleziona foto"></div>
+        <div class="carousel-counter" id="carouselCounter"></div>
+      </div>
     </div>
-    <div>
-      <h3>&#x1f4de; Contatti</h3>
-      <p><a href="tel:+390424704023" style="color:var(--gold);font-weight:600;">0424 704023</a><br>
-      <a href="mailto:stefano.maino17@gmail.com" style="color:var(--gold);">stefano.maino17@gmail.com</a></p>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section section-alt" id="reviews">
+    <div class="container">
+      <h2>Dicono di noi</h2>
+      <div class="reviews-grid">
+        <blockquote class="review-card reveal">
+          <div class="quote-icon">&ldquo;</div>
+          <div class="stars" aria-label="5 stelle">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">Personale accogliente e pizza eccezionale fatta con prodotti di prima qualit&agrave;. Da consigliare a tutti.</p>
+          <cite>Enrico Conte</cite>
+        </blockquote>
+        <blockquote class="review-card reveal">
+          <div class="quote-icon">&ldquo;</div>
+          <div class="stars" aria-label="5 stelle">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">Pizza buonissima e vini di altissima qualit&agrave;. Un angolo di paradiso sull'Altopiano.</p>
+          <cite>Alessio Poli</cite>
+        </blockquote>
+        <blockquote class="review-card reveal">
+          <div class="quote-icon">&ldquo;</div>
+          <div class="stars" aria-label="5 stelle">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">Ristorante unico. Tutto buono! Ce ne fossero di pi&ugrave; di ristoranti cos&igrave;.</p>
+          <cite>Recensione Facebook</cite>
+        </blockquote>
+      </div>
+      <div class="reviews-footer">
+        <a href="https://facebook.com/pizzeriadamaino" target="_blank" rel="noopener">
+          Vedi tutte le recensioni su Facebook
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
     </div>
-    <div>
-      <h3>&#x1f377; Specialit&agrave;</h3>
-      <p>Pizza artigianale, prodotti tipici Altopiano, vini selezionati. Birreria esterna e Beer Fest.</p>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2>Dove siamo</h2>
+      <div class="contact-grid">
+        <div class="map-container">
+          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=11.6071%2C45.7976%2C11.6171%2C45.8076&amp;layer=mapnik&amp;marker=45.8026%2C11.6121" allowfullscreen loading="lazy" title="Mappa di Da Maino a Conco"></iframe>
+        </div>
+        <div>
+          <div class="info-cards">
+            <div class="info-card">
+              <div class="icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <h3>Indirizzo</h3>
+              <p>Via Luigi Cappellari, 7/9<br>Conco (VI), 36062</p>
+            </div>
+            <div class="info-card">
+              <div class="icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <h3>Orari</h3>
+              <p>Chiama per verificare<br>gli orari di apertura</p>
+            </div>
+            <div class="info-card">
+              <div class="icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <h3>Telefono</h3>
+              <p><a href="tel:+390424704023">0424 704023</a></p>
+            </div>
+            <div class="info-card">
+              <div class="icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <h3>Email</h3>
+              <p><a href="mailto:stefano.maino17@gmail.com">stefano.maino17@gmail.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reservation CTA -->
+      <div class="reservation reveal">
+        <h3>Prenota il tuo tavolo</h3>
+        <p>Chiamaci per prenotare o per informazioni su orari e disponibilit&agrave;</p>
+        <a href="tel:+390424704023" class="btn btn-gold">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0424 704023
+        </a>
+      </div>
     </div>
+  </section>
+
+  <!-- CTA bar -->
+  <div class="cta-bar" role="complementary" aria-label="Prenotazione rapida">
+    <p>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Prenota ora &mdash; chiama e prenota il tuo tavolo!
+    </p>
+    <a href="tel:+390424704023" class="btn btn-gold" aria-label="Chiama 0424 704023">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Chiama 0424 704023
+    </a>
   </div>
-</section>
 
-<!-- CTA STICKY BAR -->
-<div class="cta-bar">
-  <p>&#x1f3b5; Prenota ora &mdash; chiama e prenota il tuo tavolo!</p>
-  <a href="tel:+390424704023" class="btn btn-gold">&#x1f4de; Chiama 0424 704023</a>
-</div>
+  <!-- Footer -->
+  <footer>
+    <img src="assets/logo.png" alt="Da Maino logo" class="footer-logo" loading="lazy">
+    <div class="social">
+      <a href="https://facebook.com/pizzeriadamaino" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="tel:+390424704023" aria-label="Telefono">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+      <a href="mailto:stefano.maino17@gmail.com" aria-label="Email">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+    <p class="footer-text">
+      &copy; 2025 Pizzeria Ristorante Enoteca da Maino<br>
+      <span>P.IVA 03811980247</span>
+    </p>
+    <p class="credits">Foto reali del locale</p>
+  </footer>
 
-<footer>
-  <div class="social">
-    <a href="https://facebook.com/pizzeriadamaino" target="_blank" rel="noopener">Facebook &rarr;</a>
+  <!-- Lightbox -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Anteprima foto">
+    <button class="close-btn" aria-label="Chiudi">&#10005;</button>
+    <img src="" alt="">
   </div>
-  <p>&copy; 2025 Pizzeria Ristorante Enoteca da Maino &mdash; P.IVA 03811980247</p>
-  <p class="credits">Foto reali del locale</p>
-</footer>
 
-<div id="lightbox" onclick="this.classList.remove('show')">
-  <img src="" alt="">
-</div>
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Torna su">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 
-<script>
-const track = document.getElementById('carouselTrack');
-const dots = document.getElementById('carouselDots');
-if (track) {
-  const slides = track.querySelectorAll('img');
-  let idx = 0, timer;
+  <script>
+    // --- Carousel ---
+    const track = document.getElementById('carouselTrack');
+    const dots = document.getElementById('carouselDots');
+    const counter = document.getElementById('carouselCounter');
+    let idx = 0, timer;
+    let startX, isDragging = false, isSwiping = false, translateX = 0;
 
-  slides.forEach((_, i) => { const d = document.createElement('button'); d.className = 'carousel-dot' + (i===0?' active':''); d.onclick = () => go(i); dots.appendChild(d); });
+    if (track) {
+      const slides = track.querySelectorAll('img');
+      const total = slides.length;
 
-  function go(n) {
-    idx = n;
-    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
-    document.querySelectorAll('.carousel-dot').forEach((d,i) => d.classList.toggle('active', i===idx));
-  }
+      slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('role', 'tab');
+        d.setAttribute('aria-label', 'Foto ' + (i + 1));
+        d.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+        d.onclick = () => go(i);
+        dots.appendChild(d);
+      });
 
-  document.getElementById('carouselPrev')?.addEventListener('click', () => { go((idx - 1 + slides.length) % slides.length); resetTimer(); });
-  document.getElementById('carouselNext')?.addEventListener('click', () => { go((idx + 1) % slides.length); resetTimer(); });
+      function go(n) {
+        idx = n;
+        track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+        document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === idx);
+          d.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+        });
+        if (counter) counter.textContent = (idx + 1) + ' / ' + total;
+      }
 
-  function resetTimer() { clearInterval(timer); timer = setInterval(() => go((idx + 1) % slides.length), 4000); }
-  timer = setInterval(() => go((idx + 1) % slides.length), 4000);
-}
+      function goDelta(delta) { go((idx + delta + total) % total); }
 
-// Lightbox
-document.querySelectorAll('.carousel-track img').forEach(img => {
-  img.addEventListener('click', () => {
-    const lb = document.getElementById('lightbox');
-    if (lb) { lb.querySelector('img').src = img.src; lb.classList.add('show'); }
-  });
-});
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') document.getElementById('lightbox')?.classList.remove('show');
-});
-</script>
+      function resetTimer() { clearInterval(timer); timer = setInterval(() => go((idx + 1) % total), 5000); }
 
+      document.getElementById('carouselPrev').addEventListener('click', () => { goDelta(-1); resetTimer(); });
+      document.getElementById('carouselNext').addEventListener('click', () => { goDelta(1); resetTimer(); });
+
+      // Touch/swipe support
+      track.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+        isSwiping = false;
+        track.style.transition = 'none';
+        resetTimer();
+      }, { passive: true });
+
+      track.addEventListener('touchmove', e => {
+        if (!isDragging) return;
+        const diff = e.touches[0].clientX - startX;
+        if (Math.abs(diff) > 10) isSwiping = true;
+        translateX = -idx * track.offsetWidth + diff;
+        track.style.transform = 'translateX(' + translateX + 'px)';
+      }, { passive: true });
+
+      track.addEventListener('touchend', e => {
+        isDragging = false;
+        track.style.transition = '';
+        if (!isSwiping) return;
+        const diff = e.changedTouches[0].clientX - startX;
+        if (diff > 60) goDelta(-1);
+        else if (diff < -60) goDelta(1);
+        else go(idx);
+      }, { passive: true });
+
+      // Keyboard
+      document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft') { goDelta(-1); resetTimer(); }
+        if (e.key === 'ArrowRight') { goDelta(1); resetTimer(); }
+      });
+
+      go(0);
+      resetTimer();
+    }
+
+    // --- Lightbox ---
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+      document.querySelectorAll('.carousel-track img').forEach(img => {
+        img.addEventListener('click', () => {
+          lightbox.querySelector('img').src = img.src;
+          lightbox.classList.add('show');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      const closeLightbox = () => {
+        lightbox.classList.remove('show');
+        document.body.style.overflow = '';
+      };
+      lightbox.querySelector('.close-btn').addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    }
+
+    // --- Nav active section ---
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => {
+            a.removeAttribute('aria-current');
+            if (a.getAttribute('href') === '#' + entry.target.id) a.setAttribute('aria-current', 'page');
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => observer.observe(s));
+
+    // --- Back to top ---
+    const backBtn = document.getElementById('backToTop');
+    if (backBtn) {
+      window.addEventListener('scroll', () => {
+        backBtn.classList.toggle('visible', window.scrollY > 500);
+      }, { passive: true });
+      backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
+    // --- Scroll reveal ---
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
 </body>
 </html>
