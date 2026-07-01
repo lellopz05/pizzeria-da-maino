@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizzeria Ristorante Enoteca da Maino | Conco, Altopiano di Asiago</title>
+  <meta name="description" content="Pizzeria Ristorante Enoteca da Maino a Conco sull'Altopiano di Asiago. Tradizione montana, pizza artigianale, vini selezionati dal 2005.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍕</text></svg>">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2c2c2c;background:#faf8f4;line-height:1.6}
+    img{max-width:100%;height:auto;display:block}
+    a{color:inherit;text-decoration:none}
+    ul{list-style:none}
+    h1,h2,h3{font-family:Georgia,'Times New Roman',serif;font-weight:700}
+    h2{font-size:2rem;text-align:center;margin-bottom:2.5rem;position:relative;padding-bottom:.75rem}
+    h2::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:3px;background:#c8a43a;border-radius:2px}
+    .section{padding:4rem 1.5rem;max-width:1100px;margin:0 auto}
+    .hero{min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('assets/hero-bg.jpg') center/cover fixed;color:#fff;padding:2rem 1rem}
+    .hero-logo{max-width:160px;margin-bottom:1.5rem;border-radius:50%;border:3px solid #c8a43a}
+    .hero h1{font-size:clamp(1.8rem,5vw,3.2rem);letter-spacing:1px}
+    .hero p{font-size:clamp(1rem,2.5vw,1.3rem);max-width:500px;margin:.75rem auto 2rem;opacity:.9}
+    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+    .btn{display:inline-block;padding:.85rem 2rem;border-radius:50px;font-weight:600;font-size:1rem;cursor:pointer;transition:.2s;border:2px solid transparent}
+    .btn-primary{background:#c8a43a;color:#fff}
+    .btn-primary:hover{background:#b08f2e;transform:translateY(-2px)}
+    .btn-outline{border-color:#fff;color:#fff;background:transparent}
+    .btn-outline:hover{background:rgba(255,255,255,.15)}
+    nav{position:sticky;top:0;z-index:100;background:rgba(44,44,44,.95);backdrop-filter:blur(8px);padding:.75rem 1.5rem;display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap}
+    nav a{color:#eee;font-size:.9rem;font-weight:500;padding:.4rem .85rem;border-radius:6px;transition:.2s;text-transform:uppercase;letter-spacing:.5px}
+    nav a:hover{background:#c8a43a;color:#2c2c2c}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+    .about-grid img{border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.1)}
+    .about-text p+p{margin-top:1rem}
+    .about-text strong{color:#8b7526}
+    .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+    .menu-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);transition:transform .2s}
+    .menu-card:hover{transform:translateY(-4px)}
+    .menu-card img{height:200px;width:100%;object-fit:cover;background:linear-gradient(135deg,#e0d8c8,#d4c8b0)}
+    .menu-card-body{padding:1.25rem}
+    .menu-card h3{font-size:1.15rem;margin-bottom:.4rem}
+    .menu-card .price{color:#c8a43a;font-weight:700;font-size:1.1rem}
+    .menu-card p{font-size:.9rem;color:#666;margin:.5rem 0 0}
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+    .gallery-grid img{border-radius:10px;width:100%;height:220px;object-fit:cover;transition:transform .3s;cursor:pointer;background:#e0d8c8}
+    .gallery-grid img:hover{transform:scale(1.03)}
+    .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+    .review-card{background:#fff;padding:1.5rem;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.06);position:relative}
+    .review-card::before{content:'\00AB';font-size:3rem;color:#c8a43a;opacity:.3;position:absolute;top:.5rem;left:1rem;line-height:1}
+    .review-card .stars{color:#f5b342;font-size:1.1rem;margin-bottom:.5rem}
+    .review-card p{font-size:.95rem;font-style:italic;margin-bottom:.5rem}
+    .review-card cite{font-size:.85rem;color:#888;font-style:normal}
+    .reviews-link{text-align:center;margin-top:2rem}
+    .reviews-link a{color:#c8a43a;font-weight:600}
+    .reviews-link a:hover{text-decoration:underline}
+    .map-container{border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.1)}
+    .map-container iframe{width:100%;height:400px;border:0}
+    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+    .info-grid div{padding:1.25rem;background:#fff;border-radius:10px}
+    .info-grid h3{font-size:1rem;margin-bottom:.5rem;color:#c8a43a}
+    .info-grid p{font-size:.9rem;color:#555}
+    footer{background:#2c2c2c;color:#ccc;text-align:center;padding:2.5rem 1.5rem 1.5rem}
+    footer .social{margin-bottom:1rem}
+    footer .social a{display:inline-block;padding:.5rem 1rem;border:1px solid #555;border-radius:50px;color:#ddd;font-size:.9rem;transition:.2s}
+    footer .social a:hover{background:#c8a43a;border-color:#c8a43a;color:#2c2c2c}
+    footer p{font-size:.85rem}
+    footer .credits{margin-top:.75rem;opacity:.6;font-size:.8rem}
+    #lightbox{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.9);align-items:center;justify-content:center;padding:2rem;cursor:pointer}
+    #lightbox.show{display:flex}
+    #lightbox img{max-width:90vw;max-height:90vh;border-radius:8px;box-shadow:0 0 30px rgba(0,0,0,.5)}
+    @media(max-width:768px){.about-grid,.info-grid{grid-template-columns:1fr}.hero{min-height:70vh}nav{gap:.4rem}nav a{font-size:.8rem;padding:.3rem .6rem}}
+    @media(max-width:480px){.section{padding:2.5rem 1rem}h2{font-size:1.6rem}.hero-btns{flex-direction:column;align-items:center}.btn{width:100%;max-width:260px;text-align:center}}
+  </style>
+</head>
+<body>
+
+<section class="hero" id="home">
+  <img src="assets/logo.png" alt="Da Maino logo" class="hero-logo">
+  <h1>Pizzeria Ristorante Enoteca da Maino</h1>
+  <p>Tradizione e qualit&agrave; sull'Altopiano dal 2005</p>
+  <div class="hero-btns">
+    <a href="tel:+390424704023" class="btn btn-primary">📞 Chiama ora</a>
+    <a href="#menu" class="btn btn-outline">🍕 Vedi il men&ugrave;</a>
+  </div>
+</section>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">Chi siamo</a>
+  <a href="#menu">Men&ugrave;</a>
+  <a href="#gallery">Galleria</a>
+  <a href="#reviews">Recensioni</a>
+  <a href="#contact">Contatti</a>
+</nav>
+
+<section class="section" id="about">
+  <h2>Chi siamo</h2>
+  <div class="about-grid">
+    <img src="assets/hero-bg.jpg" alt="Esterno Da Maino">
+    <div class="about-text">
+      <p><strong>Da Maino</strong> nasce nel 2005 a Conco, sull'Altopiano di Asiago, forte di un'esperienza trentennale nel settore della ristorazione.</p>
+      <p>Qui la tradizione montana incontra la qualit&agrave; delle materie prime: <strong>pizza artigianale</strong>, <strong>prodotti tipici</strong> dell'Altopiano (Asiago DOP, sopressa, funghi porcini, polenta) e una <strong>selezionata cantina di vini</strong>.</p>
+      <p>Ambiente rustico e accogliente con mattoni a vista, legno, camino, dehors coperto e birreria esterna. Il posto giusto per chi cerca autenticit&agrave; e sapori veri.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="menu" style="background:#f3efe8;">
+  <h2>I nostri piatti</h2>
+  <div class="menu-grid">
+    <article class="menu-card">
+      <div class="menu-card-body">
+        <h3>Piatto Unico Altopiano</h3>
+        <div class="price">€13</div>
+        <p>Polenta, Asiago DOP, sopressa, funghi porcini. I sapori della tradizione in un piatto.</p>
+      </div>
+    </article>
+    <article class="menu-card">
+      <div class="menu-card-body">
+        <h3>Pizza Toro &ldquo;Del Maino&rdquo;</h3>
+        <div class="price">€15</div>
+        <p>Carpaccio di toro, pomodorini secchi, burrata. La nostra pizza signature.</p>
+      </div>
+    </article>
+    <article class="menu-card">
+      <div class="menu-card-body">
+        <h3>Pizza classica</h3>
+        <div class="price">€8&ndash;€12</div>
+        <p>Impasto artigianale, prodotti di prima qualit&agrave;. Tutte le varianti classiche e specialit&agrave; della casa.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <h2>Galleria</h2>
+  <div class="gallery-grid">
+      <img src="assets/gallery-305579698_761694534807782_3213956407487638608_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-474823637_1355021635475066_676516741133990873_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-702180036_1756006018709957_5678140913739214053_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-705268558_1756006038709955_2713507271816520007_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-708180152_1762138191430073_1667599462673191997_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-709101490_1762138194763406_4518553636484643164_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-718174299_1773762330267659_7783199371643505808_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-718792240_1773762356934323_5719266283305619574_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-718952686_1773762273600998_2039131119111479992_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-719490732_1773762226934336_5810658743978883351_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-719548040_1773762156934343_5782899064761080982_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-719657642_1773762403600985_2533242462240415591_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-719883488_1773762300267662_7891450630819845263_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-719939121_1773762243601001_43108925802755166_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-719992709_1773762063601019_1437189850016725035_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-720177930_1773762496934309_930100429021646201_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-720475163_1773762096934349_9157485439448993427_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-720751293_1773762423600983_3261717056207059364_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-720846576_1773762176934341_1175885068084036431_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-720906634_1773762133601012_1407316831764894033_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-720919822_1773762200267672_252285253025252634_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-721003923_1773762466934312_8740461880037456374_n.jpg" alt="Foto Da Maino" loading="lazy">
+      <img src="assets/gallery-722767801_1773762390267653_1778750167139411022_n.jpg" alt="Foto Da Maino" loading="lazy">
+  </div>
+</section>
+
+<section class="section" id="reviews" style="background:#f3efe8;">
+  <h2>Dicono di noi</h2>
+  <div class="reviews-grid">
+    <blockquote class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>Personale accogliente e pizza eccezionale fatta con prodotti di prima qualit&agrave;. Da consigliare a tutti.</p>
+      <cite>&mdash; Enrico Conte</cite>
+    </blockquote>
+    <blockquote class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>Pizza buonissima e vini di altissima qualit&agrave;.</p>
+      <cite>&mdash; Alessio Poli</cite>
+    </blockquote>
+    <blockquote class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>Ristorante unico. Tutto buono! Ce ne fossero di pi&ugrave; di ristoranti cos&igrave;.</p>
+      <cite>&mdash; Recensione Facebook</cite>
+    </blockquote>
+  </div>
+  <div class="reviews-link">
+    <a href="https://facebook.com/pizzeriadamaino" target="_blank" rel="noopener">Vedi tutte le recensioni su Facebook &rarr;</a>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2>Dove siamo</h2>
+  <div class="map-container">
+    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=11.6071%2C45.7976%2C11.6171%2C45.8076&amp;layer=mapnik&amp;marker=45.8026%2C11.6121" allowfullscreen loading="lazy" title="Mappa Da Maino"></iframe>
+  </div>
+  <div class="info-grid">
+    <div>
+      <h3>📍 Indirizzo</h3>
+      <p>Via Luigi Cappellari, 7/9<br>Conco (VI), 36062</p>
+    </div>
+    <div>
+      <h3>🕐 Orari</h3>
+      <p>Chiama per verificare gli orari di apertura</p>
+    </div>
+    <div>
+      <h3>📞 Contatti</h3>
+      <p><a href="tel:+390424704023" style="color:#c8a43a;font-weight:600;">0424 704023</a><br>
+      <a href="mailto:stefano.maino17@gmail.com" style="color:#c8a43a;">stefano.maino17@gmail.com</a></p>
+    </div>
+    <div>
+      <h3>🍷 Specialit&agrave;</h3>
+      <p>Pizza artigianale, prodotti tipici Altopiano, vini selezionati. Birreria esterna e Beer Fest.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="social">
+    <a href="https://facebook.com/pizzeriadamaino" target="_blank" rel="noopener">Facebook &rarr;</a>
+  </div>
+  <p>&copy; 2025 Pizzeria Ristorante Enoteca da Maino &mdash; P.IVA 03811980247</p>
+  <p class="credits">Foto: richiedi al titolare o scatta nuove foto in alta risoluzione</p>
+</footer>
+
+<div id="lightbox" onclick="this.classList.remove('show')">
+  <img src="" alt="">
+</div>
+
+<script>
+  document.querySelectorAll('.gallery-grid img').forEach(img => {
+    img.addEventListener('click', () => {
+      const lb = document.getElementById('lightbox');
+      lb.querySelector('img').src = img.src;
+      lb.classList.add('show');
+    });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
+  });
+</script>
+
+</body>
+</html>
